@@ -2,6 +2,9 @@
 import { ref } from 'vue';
 
 const showCamera = ref(false);
+const showMainHeader = ref(true);
+const countdown = ref(10);
+let countdownInterval: number | null = null;
 const form = ref({ name: '', email: '', phone: '', token: 'randomToken' });
 const errors = ref<string[]>([]);
 const agreeChecked = ref(false);
@@ -26,6 +29,19 @@ const startCamera = () => {
   }
 };
 
+const closeCamera = () => {
+  showCamera.value = false;
+  showMainHeader.value = false;
+  countdown.value = 10;
+  countdownInterval = setInterval(() => {
+    countdown.value -= 1;
+    if (countdown.value <= 0) {
+      clearInterval(countdownInterval!);
+      showMainHeader.value = true;
+    }
+  }, 1000);
+};
+
 const submitForm = async () => {
   try {
     const response = await fetch('https://api-demo.rednosed.agency', {
@@ -48,7 +64,7 @@ const submitForm = async () => {
 </script>
 
 <template>
-  <header class="main-header">
+  <header class="main-header" v-if="showMainHeader">
     <img src="@/assets/head-background.png" alt="head-background" class="header-background">
     <div class="container">
       <nav class="main-header-nav">
@@ -94,12 +110,18 @@ const submitForm = async () => {
       </section>
     </div>
   </header>
+  <div v-else class="main-header-placeholder">
+    <div class="placeholder-content">
+      <p>Содержимое временно скрыто</p>
+      <div class="countdown">До возврата: {{ countdown }} сек</div>
+    </div>
+  </div>
   <section class="camera" v-if="showCamera">
     <h2 class="hidden">Камера проверки</h2>
     <div class="camera-wrapper">
       <video ref="video" autoplay></video>
     </div>
-    <button class="camera-close" @click="showCamera = false">
+    <button class="camera-close" @click="closeCamera">
       X
     </button>
   </section>
@@ -374,5 +396,25 @@ button {
 
 .hidden {
   display: none;
+}
+
+.main-header-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.placeholder-content {
+  text-align: center;
+}
+
+.countdown {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.2em;
+  color: black;
 }
 </style>
