@@ -735,6 +735,27 @@ main {
   text-align: center;
 }
 
+.form-wrapper-text h2 {
+  margin-bottom: 0;
+}
+
+.form-wrapper-text p {
+  position: relative;
+  font-size: 3.5em;
+  margin: 0 0 1em 0;
+}
+
+.form-wrapper-text p::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 55%;
+  height: 5px;
+  background: var(--gradient-line);
+} 
+
 .form-wrapper-fields {
   max-width: 70%;
 }
