@@ -165,45 +165,48 @@ const submitForm = async () => {
       </section>
       <section class="heresy-features contents">
         <h2 class="hidden">Преимущества</h2>
-          <div class="content">
-            <section class="feature-row">
-              <h2 class="hidden">Преимущество</h2>
-              <img src="@/assets/rocket-icon.svg" alt="rocket">
-              <ul class="content-list">
-                <li class="content-list-item">Точность и технологии</li>
-                <li class="content-list-item">
-                  Наша уникальная технология анализа основана на вере 
-                  и глубоких убеждениях, что гарантирует стабильность 
-                  и достоверность результатов. 
-                </li>
-                <li class="content-list-item">
-                  Точность результата оценивается в 146% всеми
-                  Проповедниками нашего культа.
-                </li>
-              </ul>
-            </section>
-          </div>
-          <div class="content">
-            <section class="feature-row">
-              <h2 class="hidden">Преимущество</h2>
-              <img src="@/assets/graphic-icon.svg" alt="graphic">
-              <ul class="content-list">
-                <li class="content-list-item">Держи свой уровень греха на нуле</li>
-                <li class="content-list-item">
-                  Установи уникальное приложение "Печать ереси" на свой смартфон и будь всегда в курсе своего состояния.
-                </li>
-                <li class="content-list-item">
-                  Заходи в наш официальный интернет магазин, приобретай иконки и свечки, и снижай свой статус ереси online!
-                </li>
-              </ul>
-            </section>
-          </div>
-          <div class="content">
+        <div class="content">
+          <section class="feature-row">
+            <h2 class="hidden">Преимущество</h2>
+            <img src="@/assets/rocket-icon.svg" alt="rocket">
+            <ul class="content-list">
+              <li class="content-list-item"><strong class="heresy-feature-title">Точность и технологии</strong></li>
+              <li class="content-list-item">
+                Наша уникальная технология анализа основана на вере 
+                и глубоких убеждениях, что гарантирует стабильность 
+                и достоверность результатов. 
+              </li>
+              <li class="content-list-item">
+                Точность результата оценивается в 146% всеми
+                Проповедниками нашего культа.
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="content">
+          <section class="feature-row">
+            <h2 class="hidden">Преимущество</h2>
+            <img src="@/assets/graphic-icon.svg" alt="graphic">
+            <ul class="content-list">
+              <li class="content-list-item"><strong class="heresy-feature-title">Держи свой уровень греха на нуле</strong></li>
+              <li class="content-list-item">
+                Установи уникальное приложение "Печать ереси" на свой смартфон и будь всегда в курсе своего состояния.
+              </li>
+              <li class="content-list-item">
+                Заходи в наш официальный интернет магазин, приобретай иконки и свечки, и снижай свой статус ереси online!
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
+      <section class="heresy-features contents">
+        <h2 class="hidden">Преимущества</h2>
+        <div class="content">
             <section class="feature-row">
               <h2 class="hidden">Преимущество</h2>
               <img src="@/assets/lamp-icon.svg" alt="lamp">
               <ul class="content-list">
-                <li class="content-list-item">Интеграция со всеми храмами</li>
+                <li class="content-list-item"><strong class="heresy-feature-title">Интеграция со всеми храмами</strong></li>
                 <li class="content-list-item">
                   Результаты проверки незамедоительно попадут в БД братства.
                 </li>
@@ -212,23 +215,23 @@ const submitForm = async () => {
                 </li>
               </ul>
             </section>
-          </div>
-          <div class="content">
-            <section class="feature-row">
-              <h2 class="hidden">Преимущество</h2>
-              <img src="@/assets/like-icon.svg" alt="like">
-              <ul class="content-list">
-                <li class="content-list-item">Безопасность</li>
-                <li class="content-list-item">
-                  Ваши данные в надежных руках!
-                </li>
-                <li class="content-list-item">
-                  Мы гарантируем безопасную передачу ваших личных данных в любые другие организации по нашему усмотрению.
-                </li>
-              </ul>
-            </section>
-          </div>
-        </section>
+        </div>
+        <div class="content">
+          <section class="feature-row">
+            <h2 class="hidden">Преимущество</h2>
+            <img src="@/assets/like-icon.svg" alt="like">
+            <ul class="content-list">
+              <li class="content-list-item"><strong class="heresy-feature-title">Безопасность</strong></li>
+              <li class="content-list-item">
+                Ваши данные в надежных руках!
+              </li>
+              <li class="content-list-item">
+                Мы гарантируем безопасную передачу ваших личных данных в любые другие организации по нашему усмотрению.
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
     </div>
   </main>
   <form @submit.prevent="submitForm">
@@ -585,7 +588,14 @@ main {
   justify-content: space-between;
 }
 
+.feature-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .heresy-statiscs {
+  margin-bottom: 3em;
   padding-bottom: 4em;
   border-bottom: 1px solid #ffffff;
 }
@@ -593,8 +603,6 @@ main {
 .heresy-statiscs .feature-column p {
   font-size: 1em;
 }
-
-
 
 @media (min-width: 1024px) {
   .heresy-statiscs h2 {
@@ -653,5 +661,36 @@ main {
   padding-right: 1em;
 }
 
+.heresy-features .feature-row .content-list {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.heresy-features {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  font-size: 1em;
+}
+
+.heresy-feature-title {
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .heresy-features {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 576px) {
+  .heresy-features {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 360px) {
+  .heresy-features {
+    font-size: 0.7em;
+  }
+}
 
 </style>
