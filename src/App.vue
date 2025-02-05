@@ -8,6 +8,7 @@ let countdownInterval: number | null = null;
 const form = ref({ name: '', email: '', phone: '', token: 'randomToken' });
 const errors = ref<string[]>([]);
 const agreeChecked = ref(false);
+const randomHeresyLevel = ref(Math.floor(Math.random() * 101));
 
 const startCamera = () => {
   if (agreeChecked.value) {
@@ -33,7 +34,7 @@ const closeCamera = () => {
   showCamera.value = false;
   showMainHeader.value = false;
   countdown.value = 10;
-
+  randomHeresyLevel.value = Math.floor(Math.random() * 101);
   // Остановить поток видео
   const video = document.querySelector('video');
   if (video && video.srcObject) {
@@ -121,10 +122,15 @@ const submitForm = async () => {
       </section>
     </div>
   </header>
-  <div v-else class="main-header-placeholder">
+  <div v-else class="background-placeholder">
     <div class="placeholder-content">
-      <p>Содержимое временно скрыто</p>
+      <h2>Анализ завершен успешно!</h2>
+      <p>Ваш уровень ереси:</p>
+      <p class="heresy-level"><b>{{ randomHeresyLevel }}%</b></p>
       <div class="countdown">До возврата: {{ countdown }} сек</div>
+      <p>У вас высокий уровень ереси! 
+        Вы должны посетить храм и оплатить  прощение. 
+        В противном случае будет наложен административный штраф до 30 тыс.руб</p>
     </div>
   </div>
   <section class="camera" v-if="showCamera">
@@ -409,16 +415,62 @@ button {
   display: none;
 }
 
-.main-header-placeholder {
+.background-placeholder {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: white;
+  color: #ffffff;
+  background-image: url('@/assets/low-opacity-result.jpg');
+  background-color: rgba(0, 0, 0, 0.8);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px;
+  text-align: center;
+}
+
+.background-placeholder * {
+  margin: 0;
+}
+
+
+@media (min-width: 1200px) {
+  .background-placeholder {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 992px) {
+  .background-placeholder {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .background-placeholder {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 576px) {
+  .background-placeholder {
+    font-size: 0.6em;
+  }
 }
 
 .placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  width: 50%;
+}
+
+.heresy-level {
+  font-size: 4em;
+  color: #ff9e17;
 }
 
 .countdown {
@@ -426,6 +478,6 @@ button {
   bottom: 10px;
   right: 10px;
   font-size: 1.2em;
-  color: black;
+  color: #ff9e17;
 }
 </style>
