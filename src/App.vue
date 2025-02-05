@@ -6,7 +6,7 @@ const showMainHeader = ref(true);
 const countdown = ref(10);
 let countdownInterval: number | null = null;
 const form = ref({ name: '', email: '', phone: '', token: 'randomToken' });
-const errors = ref<string[]>([]);
+const errors = ref<{ [key: string]: string }>({});
 const agreeChecked = ref(false);
 const randomHeresyLevel = ref(Math.floor(Math.random() * 101));
 
@@ -56,18 +56,19 @@ const closeCamera = () => {
 
 const submitForm = async () => {
   try {
-    const response = await fetch('https://api-demo.rednosed.agency', {
+    const response = await fetch('/api', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form.value)
     });
-    const result = await response.json();
+    const text = await response.text();
+    const result = text ? JSON.parse(text) : {};
     if (result.result) {
       alert('Форма успешно отправлена!');
       form.value = { name: '', email: '', phone: '', token: 'randomToken' };
-      errors.value = [];
+      errors.value = {};
     } else {
-      errors.value = Object.values(result.warnings);
+      errors.value = result.warnings;
     }
   } catch (error) {
     console.error("Error submitting form: ", error);
@@ -243,17 +244,15 @@ const submitForm = async () => {
         </div>
         <div class="form-wrapper-fields">
           <input type="text" v-model="form.name" placeholder="Ваше ФИО" />
+          <p v-if="errors.name" class="error-msg">{{ errors.name }}</p>
           <input type="email" v-model="form.email" placeholder="Email" />
+          <p v-if="errors.email" class="error-msg">{{ errors.email }}</p>
           <input type="tel" v-model="form.phone" placeholder="Телефон" />
+          <p v-if="errors.phone" class="error-msg">{{ errors.phone }}</p>
         </div>
         <button class="button-submit" type="submit">Заказать очищение</button>
       </div>
   </form>
-  <div v-if="errors.length">
-    <ul>
-      <li v-for="error in errors" :key="error">{{ error }}</li>
-    </ul>
-  </div>
   </footer>
 </template>
 
@@ -690,5 +689,10 @@ main {
   background-image: url('@/assets/phone.svg');
 }
 
+.error-msg {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 0.25em;
+}
 
 </style>
