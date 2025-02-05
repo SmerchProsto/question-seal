@@ -234,17 +234,27 @@ const submitForm = async () => {
       </section>
     </div>
   </main>
-  <form @submit.prevent="submitForm">
-    <input type="text" v-model="form.name" placeholder="Ваше имя" />
-    <input type="email" v-model="form.email" placeholder="Email" />
-    <input type="tel" v-model="form.phone" placeholder="Телефон" />
-    <button type="submit">Заказать очищение</button>
+  <footer class="main-footer">
+    <form class="form-container main-footer-form" @submit.prevent="submitForm">
+      <div class="form-wrapper">
+        <div class="form-wrapper-text">
+          <h2>Форма заявки</h2>
+          <p>Заказать очищение.</p>
+        </div>
+        <div class="form-wrapper-fields">
+          <input type="text" v-model="form.name" placeholder="Ваше ФИО" />
+          <input type="email" v-model="form.email" placeholder="Email" />
+          <input type="tel" v-model="form.phone" placeholder="Телефон" />
+        </div>
+        <button class="button-submit" type="submit">Заказать очищение</button>
+      </div>
   </form>
   <div v-if="errors.length">
     <ul>
       <li v-for="error in errors" :key="error">{{ error }}</li>
     </ul>
   </div>
+  </footer>
 </template>
 
 <style scoped>
@@ -692,5 +702,65 @@ main {
     font-size: 0.7em;
   }
 }
+
+.main-footer {
+  color: #ffffff;
+  background-image: url('@/assets/low-form-bg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.form-container {
+  max-width: 1200px;
+  margin: 0 0 0 auto;
+  padding: 30px 40px;
+}
+
+.main-footer-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+
+.form-wrapper-text {
+  text-align: center;
+}
+
+.form-wrapper-fields {
+  max-width: 70%;
+}
+
+.form-wrapper input {
+  width: 100%;
+  padding: 0.625em 3em 0.625em 2em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: #f9f9ff;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 25px) center;
+}
+
+.form-wrapper input:nth-child(1) {
+  background-image: url('@/assets/person.svg');
+
+}
+.form-wrapper input:nth-child(2) {
+  background-image: url('@/assets/message.svg');
+}
+.form-wrapper input:nth-child(3) {
+  background-image: url('@/assets/phone.svg');
+}
+
 
 </style>
