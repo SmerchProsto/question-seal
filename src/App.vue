@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import type { Ref } from 'vue';
 
-const showCamera = ref(false);
-const showMainHeader = ref(true);
-const countdown = ref(10);
+const showCamera= ref<boolean>(false);
+const showMainHeader: Ref<boolean> = ref(true);
+const countdown: Ref<number> = ref(10);
+const form: Ref<{ name: string; email: string; phone: string; token: string }> = ref({ name: '', email: '', phone: '', token: 'randomToken' });
+const errors: Ref<{ [key: string]: string }> = ref({});
+const agreeChecked: Ref<boolean> = ref(false);
+const randomHeresyLevel: Ref<number> = ref(Math.floor(Math.random() * 101));
 let countdownInterval: number | null = null;
-const form = ref({ name: '', email: '', phone: '', token: 'randomToken' });
-const errors = ref<{ [key: string]: string }>({});
-const agreeChecked = ref(false);
-const randomHeresyLevel = ref(Math.floor(Math.random() * 101));
 
 const startCamera = () => {
   if (agreeChecked.value) {
@@ -19,7 +20,7 @@ const startCamera = () => {
         if (video) video.srcObject = stream;
       })
       .catch(err => console.error("Error accessing camera: ", err));
-  } else {
+  } else { 
     const agreeElement = document.querySelector('.main-header-agree');
     if (agreeElement) {
       agreeElement.classList.add('animate-agree');
