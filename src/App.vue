@@ -33,6 +33,17 @@ const closeCamera = () => {
   showCamera.value = false;
   showMainHeader.value = false;
   countdown.value = 10;
+
+  // Остановить поток видео
+  const video = document.querySelector('video');
+  if (video && video.srcObject) {
+    const stream = video.srcObject as MediaStream;
+    stream.getTracks().forEach(track => {
+      track.stop();
+    });
+    video.srcObject = null;
+  }
+
   countdownInterval = setInterval(() => {
     countdown.value -= 1;
     if (countdown.value <= 0) {
