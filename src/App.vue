@@ -142,6 +142,29 @@ const submitForm = async () => {
       X
     </button>
   </section>
+  <main>
+    <div class="container">
+      <section class="heresy-statiscs contents">
+        <h2 class="hidden">Положения</h2>
+        <section class="heresy-statiscs-text content">
+          <h2>Снижаем уровень ереси с XIII века.</h2>
+        </section>
+        <div class="content">
+          <section class="features">
+          <h2 class="hidden">Цифры и факты</h2>
+          <section class="feature">
+            <b>1478</b>
+            <p>Год основания компании в европе</p>
+          </section>
+          <section class="feature">
+            <b>3687</b>
+            <p>Клиентов довольных нами</p>
+          </section>
+        </section>
+        </div>
+      </section>
+    </div>
+  </main>
   <form @submit.prevent="submitForm">
     <input type="text" v-model="form.name" placeholder="Ваше имя" />
     <input type="email" v-model="form.email" placeholder="Email" />
@@ -480,4 +503,89 @@ button {
   font-size: 1.2em;
   color: #ff9e17;
 }
+
+main {
+  color: #ffffff;
+  background-image: url('@/assets/low-opacity-result.jpg');
+  background-color: rgba(0, 0, 0, 0.8);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.heresy-statiscs {
+  padding-bottom: 4em;
+  border-bottom: 1px solid #ffffff;
+}
+
+.heresy-statiscs .feature p {
+  font-size: 1em;
+}
+
+
+
+@media (min-width: 1024px) {
+  .heresy-statiscs h2 {
+  font-size: 3em;
+}
+}
+
+.heresy-statiscs .feature b {
+  font-size: 4em;
+}
+
+@media (max-width: 1024px) {
+  .heresy-statiscs .feature b {
+    font-size: 3em;
+  }
+  .heresy-statiscs .feature p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) {
+  .heresy-statiscs .feature b {
+    font-size: 2.5em;
+  }
+  .heresy-statiscs .feature p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 576px) {
+  .heresy-statiscs .feature b {
+    font-size: 1.6em;
+  }
+  .heresy-statiscs .feature p {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 360px) {
+  .heresy-statiscs .feature b {
+    font-size: 1.2em;
+  }
+  .heresy-statiscs h2 {
+    font-size: 1em;
+  }
+  .heresy-statiscs .feature p {
+    font-size: 0.6em;
+  }
+}
+
+.heresy-statiscs .feature p {
+  max-width: 50%;
+}
+
+.heresy-statiscs-text {
+  padding-right: 1em;
+}
+
+
 </style>
