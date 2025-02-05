@@ -324,23 +324,6 @@ const submitForm = async () => {
   text-transform: uppercase;
 }
 
-@media (max-width: 600px) {
-  .header-content-title {
-    font-size: 0.5em;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  .header-content-title {
-    font-size: 0.6em;
-  }
-}
-
-@media (min-width: 1025px) {
-  .header-content-title {
-    font-size: 1em;
-  }
-}
 
 
 .header-content-title::after {
@@ -365,6 +348,7 @@ const submitForm = async () => {
 }
 
 .main-header-agree {
+  font-size: var(--font-size-p-sm);
   max-width: 50%;
   color: #878787;
   cursor: pointer;
@@ -536,31 +520,6 @@ button {
   margin: 0;
 }
 
-
-@media (min-width: 1200px) {
-  .background-placeholder {
-    font-size: 1.4em;
-  }
-}
-
-@media (max-width: 992px) {
-  .background-placeholder {
-    font-size: 1.2em;
-  }
-}
-
-@media (max-width: 768px) {
-  .background-placeholder {
-    font-size: 1em;
-  }
-}
-
-@media (max-width: 576px) {
-  .background-placeholder {
-    font-size: 0.6em;
-  }
-}
-
 .placeholder-content {
   display: flex;
   flex-direction: column;
@@ -614,52 +573,17 @@ main {
   font-size: 1em;
 }
 
-@media (min-width: 1024px) {
-  .heresy-statiscs h2 {
-  font-size: 3em;
-}
-}
-
-.heresy-statiscs .feature-column b {
-  font-size: 4em;
-}
-
-@media (max-width: 1024px) {
   .heresy-statiscs .feature-column b {
-    font-size: 3em;
+    font-size: 4em;
   }
-  .heresy-statiscs .feature-column p {
-    font-size: 0.9em;
-  }
-}
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .heresy-statiscs .feature-column b {
-    font-size: 2.5em;
-  }
-  .heresy-statiscs .feature-column p {
-    font-size: 0.8em;
-  }
-}
-
-@media (max-width: 576px) {
-  .heresy-statiscs .feature-column b {
-    font-size: 1.6em;
-  }
-  .heresy-statiscs .feature-column p {
-    font-size: 0.7em;
-  }
-}
-
-@media (max-width: 360px) {
-  .heresy-statiscs .feature-column b {
-    font-size: 1.2em;
-  }
-  .heresy-statiscs h2 {
-    font-size: 1em;
+    font-size: 2em;
   }
   .heresy-statiscs .feature-column p {
     font-size: 0.6em;
+    padding-left: 0.7em;
   }
 }
 
@@ -685,23 +609,6 @@ main {
   font-size: 1.2em;
 }
 
-@media (max-width: 768px) {
-  .heresy-features {
-    font-size: 0.9em;
-  }
-}
-
-@media (max-width: 576px) {
-  .heresy-features {
-    font-size: 0.8em;
-  }
-}
-
-@media (max-width: 360px) {
-  .heresy-features {
-    font-size: 0.7em;
-  }
-}
 
 .main-footer {
   color: #ffffff;
