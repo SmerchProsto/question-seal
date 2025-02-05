@@ -4,15 +4,26 @@ import { ref } from 'vue';
 const showCamera = ref(false);
 const form = ref({ name: '', email: '', phone: '', token: 'randomToken' });
 const errors = ref<string[]>([]);
+const agreeChecked = ref(false);
 
 const startCamera = () => {
-  showCamera.value = true;
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-      const video = document.querySelector('video');
-      if (video) video.srcObject = stream;
-    })
-    .catch(err => console.error("Error accessing camera: ", err));
+  if (agreeChecked.value) {
+    showCamera.value = true;
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        const video = document.querySelector('video');
+        if (video) video.srcObject = stream;
+      })
+      .catch(err => console.error("Error accessing camera: ", err));
+  } else {
+    const agreeElement = document.querySelector('.main-header-agree');
+    if (agreeElement) {
+      agreeElement.classList.add('animate-agree');
+      setTimeout(() => {
+        agreeElement.classList.remove('animate-agree');
+      }, 2000);
+    }
+  }
 };
 
 const submitForm = async () => {
@@ -65,6 +76,15 @@ const submitForm = async () => {
               </li>
             </ul>
             <button class="button-submit" @click="startCamera">Провериться</button>
+            <ul class="content-list">
+              <li class="content-list-item main-header-agree">
+                <label>
+                  <input type="checkbox" name="agree" v-model="agreeChecked">
+                  <span>Я согласен гореть в аду в случае 
+                    высокого уровня ереси в крови</span>
+                </label>
+              </li>
+            </ul>
           </section>
         </section>
         <section class="header-content content">
@@ -203,11 +223,23 @@ const submitForm = async () => {
   box-shadow: -20px 19px 68px 21px rgba(34, 60, 80, 0.15);
 }
 
+.main-header-agree {
+  max-width: 50%;
+  color: #878787;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.animate-agree {
+  color: red;
+}
+
 .button-submit {
   padding: 1em;
   color: #ffffff;
   background: var(--gradient-button);
   border-radius: 50px;
+  margin-bottom: 1em;
 }
 
 .contents {
@@ -233,7 +265,7 @@ const submitForm = async () => {
 }
 
 .camera {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
