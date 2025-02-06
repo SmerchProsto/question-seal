@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, markRaw } from 'vue';
 import Camera from '../Camera/index.vue';
 import HeresyResult from '../HeresyResult/index.vue';
 import Container from '../Container/index.vue';
@@ -38,7 +38,7 @@ const listHeaderContent: Array<IContentListItem> = [
 
 const listHeaderAgree = ref([
     {
-        element: AgreeBlock,
+      element: markRaw(AgreeBlock),
         props: {
             modelValue: agreeChecked,
             "onUpdate:modelValue": (v: boolean) => { agreeChecked.value = v; }
