@@ -4,7 +4,7 @@ import Form from '../Form/index.vue';
 
 <template>
     <footer class="main-footer">
-        <Form title="Форма заявки" description="Заказать очищение" />
+      <Form title="Форма заявки" description="Заказать очищение" />
   </footer>
 </template>
 <style scoped>
