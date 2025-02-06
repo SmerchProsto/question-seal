@@ -34,7 +34,7 @@ const props = defineProps<Props>();
   background-color: rgba(0, 0, 0, 0.8);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 20px;
+  padding: 1.25em;
   text-align: center;
 }
 
@@ -58,8 +58,8 @@ const props = defineProps<Props>();
 
 .countdown {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 1.25em;
+  right: 1.25em;
   font-size: 1.2em;
   color: #ff9e17;
 }

@@ -20,18 +20,17 @@ const emit = defineEmits(['update:modelValue']);
 
 <style scoped>
 input {
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
+  margin-bottom: 0.625em;
+  padding: 0.625em;
+  font-size: 1em;
   width: 100%;
   padding: 0.625em 3em 0.625em 2em;
-  font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 50px;
   background-color: #f9f9ff;
-  background-size: 20px;
+  background-size: 1.25em;
   background-repeat: no-repeat;
-  background-position: calc(100% - 25px) center;
+  background-position: calc(100% - 1.5625em) center;
 }
 
 .error-message {

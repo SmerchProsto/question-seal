@@ -14,8 +14,8 @@ const props = defineProps<Props>();
 
 <style scoped>
 .container {
-  max-width: 1280px;
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 30px 40px;
+  padding: 1.875em 2.5em;
 }
 </style>

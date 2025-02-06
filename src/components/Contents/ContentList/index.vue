@@ -27,7 +27,7 @@ const props = defineProps<Props>();
 }
 
 .content-list-item:first-child {
-  margin-bottom: 10px;
+  margin-bottom: 1em;
 }
 
 .bold-title {

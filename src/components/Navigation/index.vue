@@ -20,7 +20,7 @@ const props = defineProps<Props>();
 .main-header-nav {
   display: flex;
   align-items: center;
-  margin-bottom: 12%;
+  margin-bottom: 7.5em;
 }
 
 .main-header-nav b {
@@ -29,6 +29,6 @@ const props = defineProps<Props>();
 }
 
 .main-header-nav .icon {
-  margin-right: 10px;
+  margin-right: 0.625em;
 }
 </style>

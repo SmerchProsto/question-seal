@@ -20,10 +20,10 @@ const props = defineProps<Props>();
 <style scoped>
 
 .submit-button {
-  padding: 1em;
+  padding: 0.8em 1.25em;
   color: #ffffff;
   background: var(--gradient-button);
-  border-radius: 50px;
+  border-radius: 1.5em;
   margin-bottom: 1em;
 }
 </style>

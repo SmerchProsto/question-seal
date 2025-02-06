@@ -111,8 +111,8 @@ onUnmounted(() => {
 
 .camera-close {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0.625em;
+  left: 0.625em;
   z-index: 3;
   background-color: transparent;
   color: rgba(255, 0, 0, 0.5);

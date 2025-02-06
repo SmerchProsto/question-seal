@@ -3,6 +3,7 @@ import { reactive } from 'vue';
 import FormFields from './FormFields/index.vue';
 import SubmitButton from '../SubmitButton/index.vue';
 import type { IFormInput } from './models/IFormInput';
+import axios from 'axios';
 
 interface Form {
   name: string;
@@ -34,15 +35,14 @@ const updateField = (model: keyof Form, value: string) => {
   form[model] = value;
 };
 
+
+
 const submitForm = async () => {
   try {
-    const response = await fetch('/api', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
+    const response = await axios.post('/api', form, {
+      headers: { 'Content-Type': 'application/json' }
     });
-    const text = await response.text();
-    const result = text ? JSON.parse(text) : {};
+    const result = response.data;
     if (result.result) {
       alert('Форма успешно отправлена!');
       Object.assign(form, { name: '', email: '', phone: '', token: 'randomToken' });
@@ -76,9 +76,9 @@ form {
   flex-direction: column;
 }
 .form-container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 0 0 auto;
-  padding: 30px 40px;
+  padding: 1.875em 2.5em;
 }
 .main-footer-form {
   display: flex;
@@ -116,7 +116,7 @@ form {
   right: 0;
   display: block;
   width: 55%;
-  height: 5px;
+  height: 0.1em;
   background: var(--gradient-line);
 } 
 </style>

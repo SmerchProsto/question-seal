@@ -9,11 +9,3 @@ import Footer from './components/Footer/index.vue';
   <Main />
   <Footer />
 </template>
-
-<style scoped>
-@media (max-width: 600px) {
-  .app {
-    padding: 10px;
-  }
-}
-</style>

@@ -83,13 +83,13 @@ main {
     background-color: rgba(0, 0, 0, 0.8);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 20px;
+    padding: 1.25em;
 }
 
 .heresy-statiscs {
     margin-bottom: 3em;
     padding-bottom: 4em;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 0.1em solid #ffffff;
 }
 </style>
 

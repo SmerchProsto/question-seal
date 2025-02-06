@@ -121,13 +121,14 @@ const startCamera = () => {
   z-index: 0;
   top: 0;
   right: 0; 
+  width: 60%;
 }
 
 .main-header::after {
   content: '';
   display: block;
   width: 85%;
-  height: 1px;
+  height: 0.1em;
   background-color: #dbdbdb;
   position: absolute;
   bottom: 9%;
@@ -139,8 +140,8 @@ const startCamera = () => {
 <style>
 .header-content-title {
   position: relative;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+  margin-bottom: 1.875em;
+  padding-bottom: 1.875em;
   text-transform: uppercase;
 }
 
@@ -151,7 +152,7 @@ const startCamera = () => {
   left: 0;
   display: block;
   width: 20%;
-  height: 5px;
+  height: 0.3125em;
   background: var(--gradient-line);
   transform: translateX(-25%);
 }
@@ -161,8 +162,8 @@ const startCamera = () => {
 }
 
 .header-content .header-content-image {
-  border-radius: 20px;
-  box-shadow: -20px 19px 68px 21px rgba(34, 60, 80, 0.15);
+  border-radius: 1.25em;
+  box-shadow: -1.25em 1.1875em 4.25em 1.3125em rgba(34, 60, 80, 0.15);
 }
 
 .header-content-text {
