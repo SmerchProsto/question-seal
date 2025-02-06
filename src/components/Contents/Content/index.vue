@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import type { IClassesForComponent } from '../../../models/IClassesForComponent';
 
-interface Props extends IClassesForComponent {
-}
-
-const props = defineProps<Props>();
+const props = defineProps<IClassesForComponent>();
 </script>
 
 <template>

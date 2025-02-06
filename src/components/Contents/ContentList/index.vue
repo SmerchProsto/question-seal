@@ -13,7 +13,7 @@ const props = defineProps<Props>();
     <ul :class="['content-list', ...(props.customClasses || [])]">
         <li v-for="item in list" :class="['content-list-item', ...(item.customClasses || [])]">
             <component v-if="item.element" :is="item.element" v-bind="item.props"></component>
-            <span v-if="item.description">{{ item.description }}</span>
+            <span v-if="item.description" :class="{'bold-title': item.isTitle}">{{ item.description }}</span>
         </li>
     </ul>
 </template>
@@ -28,5 +28,10 @@ const props = defineProps<Props>();
 
 .content-list-item:first-child {
   margin-bottom: 10px;
+}
+
+.bold-title {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 </style>
