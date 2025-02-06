@@ -84,7 +84,6 @@ p, a, button, li, input, label {
 button {
   outline: none;
   border: none;
-  border-radius: 8px;
   padding: 0.6em 1.2em;
   font-size: var(--font-size-button);
   font-weight: 500;
@@ -111,7 +110,6 @@ button:focus-visible {
   }
 }
 
-/* Media Queries for Adaptive Typography */
 @media (max-width: 576px) {
   :root {
     --font-size-h1: 1.8em;

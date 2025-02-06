@@ -3,4 +3,7 @@ export interface IFormInput {
     model: string;
     placeholder: string;
     error: string;
+    icon: string;
+    value: string;
+    iconAlt: string;
 }

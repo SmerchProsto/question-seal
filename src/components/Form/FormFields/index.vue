@@ -22,6 +22,8 @@ const emit = defineEmits(['update:field']);
             :placeholder="field.placeholder" 
             :error="props.errors[field.model]"
             :value="props.form[field.model]"
+            :icon="field.icon"
+            :iconAlt="field.iconAlt"
             @update:modelValue="(value) => emit('update:field', field.model, value)"
         />
     </div>
@@ -30,6 +32,6 @@ const emit = defineEmits(['update:field']);
 
 <style scoped>
 .form-wrapper-fields {
-  max-width: 60%;
+  width: 70%;
 }
 </style>

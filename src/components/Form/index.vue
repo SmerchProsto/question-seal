@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
+import axios from 'axios';
 import FormFields from './FormFields/index.vue';
+import personIcon from '@/assets/person.svg';
+import messageIcon from '@/assets/message.svg';
+import phoneIcon from '@/assets/phone.svg';
 import SubmitButton from '../SubmitButton/index.vue';
 import type { IFormInput } from './models/IFormInput';
-import axios from 'axios';
 
 interface Form {
   name: string;
@@ -21,9 +24,9 @@ interface Errors {
 const form = reactive<Form>({ name: '', email: '', phone: '', token: 'randomToken' });
 const errors = reactive<Errors>({ name: '', email: '', phone: '' });
 const fields = reactive<IFormInput[]>([
-    { type: 'text', model: 'name', placeholder: 'Ваше ФИО', error: '' },
-    { type: 'email', model: 'email', placeholder: 'Email', error: '' },
-    { type: 'tel', model: 'phone', placeholder: 'Телефон', error: '' }
+    { type: 'text', model: 'name', placeholder: 'Ваше ФИО', error: '', icon: personIcon, value: '', iconAlt: 'person' },
+    { type: 'email', model: 'email', placeholder: 'Email', error: '', icon: messageIcon, value: '', iconAlt: 'message' },
+    { type: 'tel', model: 'phone', placeholder: 'Телефон', error: '', icon: phoneIcon, value: '', iconAlt: 'phone' }
 ]);
 
 const props = defineProps<{
@@ -71,19 +74,12 @@ const submitForm = async () => {
 
 
 <style scoped>
-form {
-  display: flex;
-  flex-direction: column;
-}
 .form-container {
   max-width: 75rem;
   margin: 0 0 0 auto;
   padding: 1.875em 2.5em;
 }
 .main-footer-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #ffffff;
 }
 
