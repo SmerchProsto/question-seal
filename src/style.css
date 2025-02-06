@@ -173,3 +173,7 @@ button:focus-visible {
     font-size: var(--font-size-p-sm);
   }
 }
+
+.hidden {
+  display: none;
+}
