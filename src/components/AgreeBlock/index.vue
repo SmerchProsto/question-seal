@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps, defineEmits, ref } from 'vue';
+import { computed, defineProps, defineEmits } from 'vue';
 
 interface AgreeBlockProps {
     modelValue: boolean;
